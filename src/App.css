@@ -1,0 +1,50 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Section Styles */
+.section {
+  min-height: 100vh;
+  padding: 6rem 3rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section:nth-child(even) {
+  background: #000000;
+}
+
+.section:nth-child(odd) {
+  background: #0e0d0d;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .section {
+    padding: 8rem 1.5rem 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

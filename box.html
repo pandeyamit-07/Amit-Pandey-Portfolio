@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>W Shape Animation</title>
+
+<style>
+    /* Reset & center everything */
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+    }
+
+    /* Large container */
+    .container {
+        width: 600px;
+        height: 300px;
+        background-color: #e0e0e0;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    /* Small moving box */
+    .box {
+        width: 40px;
+        height: 40px;
+        background-color: #6ecbff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: wMove 4s linear infinite;
+    }
+
+    /* W-shaped animation */
+    @keyframes wMove {
+        0% {
+            transform: translate(0, 20px);
+        }
+        25% {
+            transform: translate(140px, 200px);
+        }
+        50% {
+            transform: translate(280px, 20px);
+        }
+        75% {
+            transform: translate(420px, 200px);
+        }
+        100% {
+            transform: translate(560px, 20px);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="box"></div>
+</div>
+
+</body>
+</html>
