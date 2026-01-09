@@ -1,4 +1,5 @@
 import './About.css'
+import myPhoto2 from "../../assets/img/nav.png";
 
 function About() {
   return (
@@ -8,7 +9,7 @@ function About() {
         <div className="about-content">
           <div className="about-image-container">
             <img 
-              src="./src/assets/img/nav.png" 
+              src={myPhoto2} 
               alt="Amit Pandey" 
               className="about-image"
             />
@@ -51,4 +52,5 @@ function About() {
 }
 
 export default About
+
 
