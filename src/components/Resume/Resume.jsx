@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Resume.css';
-import amitImage from '../../assets/nav.png';
+import amitImage from '../../assets/img/nav.png';
 import resumePDF from '../../assets/pdf/Amit Pandey Resume .pdf';
 
 const Resume = () => {

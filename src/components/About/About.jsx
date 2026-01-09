@@ -8,7 +8,7 @@ function About() {
         <div className="about-content">
           <div className="about-image-container">
             <img 
-              src="./src/assets/nav.png" 
+              src="./src/assets/img/nav.png" 
               alt="Amit Pandey" 
               className="about-image"
             />

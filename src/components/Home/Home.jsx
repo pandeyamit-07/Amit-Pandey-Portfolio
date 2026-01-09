@@ -20,7 +20,7 @@ function Home() {
           </div>
           <div className="home-image-container">
             <img 
-              src="./src/assets/3.png" 
+              src="./src/assets/img/3.png" 
               alt="Amit Pandey" 
               className="home-image"
             />

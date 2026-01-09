@@ -55,7 +55,7 @@ function Navbar({ activeSection, scrollToSection }) {
       <div className="nav-right">
         <div className="profile-info">
           <img 
-            src="./src/assets/nav.png" 
+            src="./src/assets/img/nav.png" 
             alt="Amit Pandey" 
             className="nav-profile-img"
           />
