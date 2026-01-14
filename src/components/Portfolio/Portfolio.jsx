@@ -217,6 +217,38 @@ function Portfolio() {
     }
   }, [activePortfolioTab])
 
+  const buildTimelineItems = (project) => {
+    if (!project) return []
+
+    const descriptionParagraphs = project.description
+      .split('\n\n')
+      .map(p => p.trim())
+      .filter(Boolean)
+
+    const baseImages = project.images && project.images.length > 0
+      ? project.images
+      : []
+
+    // Always create 4 steps, cycling through available images
+    const totalSteps = 4
+    const fallbackText =
+      descriptionParagraphs[descriptionParagraphs.length - 1] || ''
+
+    return Array.from({ length: totalSteps }, (_, index) => {
+      const image =
+        baseImages.length > 0
+          ? baseImages[index % baseImages.length]
+          : null
+
+      const text = descriptionParagraphs[index] || fallbackText
+
+      return {
+        image,
+        text
+      }
+    })
+  }
+
   return (
     <section id="portfolio" className="section portfolio-section">
       <div className="container">
@@ -492,76 +524,16 @@ function Portfolio() {
       {isProjectModalOpen && selectedProject && (
         <div className="project-modal-overlay" onClick={closeProjectModal}>
           <div className="project-modal-content" onClick={(e) => e.stopPropagation()}>
+            {/* Close Button - Top */}
             <button className="project-modal-close" onClick={closeProjectModal}>×</button>
             
-            {/* Image Slideshow */}
-            <div className="project-slideshow-container">
-              <div className="project-slideshow">
-                {selectedProject.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`project-slide ${index === currentImageIndex ? 'active' : ''}`}
-                  >
-                    <img src={image} alt={`${selectedProject.title} - Image ${index + 1}`} />
-                  </div>
-                ))}
-              </div>
-              
-              {/* Navigation Arrows */}
-              {selectedProject.images.length > 1 && (
-                <>
-                  <button className="slide-arrow slide-arrow-left" onClick={(e) => {
-                    e.stopPropagation()
-                    prevImage()
-                  }}>
-                    ‹
-                  </button>
-                  <button className="slide-arrow slide-arrow-right" onClick={(e) => {
-                    e.stopPropagation()
-                    nextImage()
-                  }}>
-                    ›
-                  </button>
-                </>
-              )}
-              
-              {/* Dots Indicator */}
-              {selectedProject.images.length > 1 && (
-                <div className="slide-dots">
-                  {selectedProject.images.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`slide-dot ${index === currentImageIndex ? 'active' : ''}`}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        goToImage(index)
-                      }}
-                      aria-label={`Go to slide ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              )}
+            {/* Project Title */}
+            <div className="project-modal-header">
+              <h2 className="project-modal-title">{selectedProject.title}</h2>
             </div>
 
-            {/* Project Details */}
-            <div className="project-modal-details">
-              <h2 className="project-modal-title">{selectedProject.title}</h2>
-              
-              <div className="project-modal-description">
-                {selectedProject.description.split('\n\n').map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-
-              <div className="project-modal-tech">
-                <h3 className="project-modal-tech-title">Technologies Used:</h3>
-                <div className="project-modal-tech-tags">
-                  {selectedProject.technologies.map((tech, index) => (
-                    <span key={index} className="project-modal-tech-tag">{tech}</span>
-                  ))}
-                </div>
-              </div>
-
+            {/* View Live Button + Technologies Used */}
+            <div className="project-modal-top-row">
               <div className="project-modal-actions">
                 <a 
                   href={selectedProject.liveLink} 
@@ -572,6 +544,34 @@ function Portfolio() {
                   View Live
                 </a>
               </div>
+
+              <div className="project-modal-tech">
+                <h3 className="project-modal-tech-title">Technologies Used</h3>
+                <div className="project-modal-tech-tags">
+                  {selectedProject.technologies.map((tech, index) => (
+                    <span key={index} className="project-modal-tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Zig-zag timeline layout with 4 images and descriptions */}
+            <div className="project-zigzag">
+              {buildTimelineItems(selectedProject).map((item, index) => (
+                <div 
+                  key={index} 
+                  className={`project-step ${index % 2 === 1 ? 'step-right' : 'step-left'}`}
+                >
+                  <div className="step-image">
+                    {item.image && (
+                      <img src={item.image} alt={`${selectedProject.title} view ${index + 1}`} />
+                    )}
+                  </div>
+                  <div className="step-text">
+                    <p>{item.text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -814,15 +814,14 @@
   position: relative;
   width: 100%;
   max-width: 1200px;
-  max-height: 95vh;
   background: #1a1a1a;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   animation: slideUp 0.3s ease-out;
-  overflow: hidden;
   border: 2px solid rgba(100, 108, 255, 0.3);
+  margin: auto;
 }
 
 .project-modal-close {
@@ -892,6 +891,94 @@
   height: 100%;
   object-fit: contain;
   background: #000000;
+}
+
+  /* Zig-zag timeline layout */
+  .project-zigzag {
+    padding: 2rem 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+  }
+
+.project-step {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  padding: 1.25rem 0;
+}
+
+.project-step::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  width: 0;
+  height: 3rem;
+  border-left: 2px dotted #9ca3af;
+  opacity: 0.6;
+}
+
+.project-step:last-child::after {
+  display: none;
+}
+
+.project-step::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #646cff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.6);
+}
+
+.project-step.step-right {
+  flex-direction: row-reverse;
+}
+
+.step-image {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-image img {
+  width: 180px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.step-text {
+  flex: 1;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.9));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.step-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  color: #e0e7ff;
+  letter-spacing: 0.5px;
+}
+
+.step-text p {
+  margin: 0;
+  color: #e5e7eb;
+  line-height: 1.7;
+  font-size: 0.98rem;
 }
 
 /* Navigation Arrows */
@@ -967,22 +1054,38 @@
   box-shadow: 0 0 10px rgba(100, 108, 255, 0.8);
 }
 
-/* Project Details Section */
-.project-modal-details {
-  padding: 2.5rem;
-  overflow-y: auto;
-  max-height: calc(95vh - 500px);
+/* Project Modal Header */
+.project-modal-header {
+  padding: 2.5rem 2.5rem 1.5rem;
 }
 
 .project-modal-title {
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.project-modal-top-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 0 2.5rem 2rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.25), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(96, 165, 250, 0.35);
+}
+
+/* Project Details Section */
+.project-modal-details {
+  padding: 2.5rem;
+  overflow-y: auto;
+  max-height: 75vh;
 }
 
 .project-modal-description {
@@ -1001,7 +1104,7 @@
 }
 
 .project-modal-tech {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .project-modal-tech-title {
@@ -1036,8 +1139,7 @@
 
 .project-modal-actions {
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  justify-content: flex-start;
 }
 
 .project-view-live-btn {
@@ -1063,16 +1165,21 @@
 @media (max-width: 968px) {
   .project-modal-content {
     max-width: 95vw;
-    max-height: 98vh;
   }
 
-  .project-slideshow-container {
-    height: 400px;
+  .project-modal-header {
+    padding: 2rem 2rem 1rem;
   }
 
-  .project-modal-details {
-    padding: 2rem;
-    max-height: calc(98vh - 400px);
+  .project-modal-top-row {
+    margin: 0 2rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .project-zigzag {
+    padding: 2rem 2rem 2rem;
   }
 
   .project-modal-title {
@@ -1087,12 +1194,7 @@
 
   .project-modal-content {
     max-width: 100vw;
-    max-height: 100vh;
     border-radius: 15px;
-  }
-
-  .project-slideshow-container {
-    height: 300px;
   }
 
   .project-modal-close {
@@ -1103,36 +1205,51 @@
     font-size: 1.5rem;
   }
 
-  .slide-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
-
-  .slide-arrow-left {
-    left: 10px;
-  }
-
-  .slide-arrow-right {
-    right: 10px;
-  }
-
-  .project-modal-details {
-    padding: 1.5rem;
-    max-height: calc(100vh - 300px);
+  .project-modal-header {
+    padding: 1.5rem 1.5rem 1rem;
   }
 
   .project-modal-title {
     font-size: 1.4rem;
   }
 
-  .project-modal-description p {
-    font-size: 0.9rem;
+  .project-modal-top-row {
+    margin: 0 1.5rem 1.5rem;
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .project-view-live-btn {
     padding: 0.8rem 2rem;
     font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .project-zigzag {
+    padding: 1.5rem 1.5rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .project-step,
+  .project-step.step-right {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-step::after,
+  .project-step::before {
+    left: 50%;
+  }
+
+  .step-text {
+    text-align: center;
+  }
+
+  .step-image img {
+    width: 150px;
+    height: 140px;
   }
 }
 

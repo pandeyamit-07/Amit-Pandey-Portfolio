@@ -9,6 +9,7 @@ const Resume = () => {
 
   const handleNext = () => {
     setActivePage((prev) => Math.min(prev + 1, maxPages));
+    
   };
 
   const handlePrev = () => {
