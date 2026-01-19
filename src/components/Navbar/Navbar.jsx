@@ -1,5 +1,5 @@
 import './Navbar.css';
-import amitImage from '../../assets/img/nav.png';
+import amitImage from '../../assets/img/amit-nav.png';
 
 
 function Navbar({ activeSection, scrollToSection }) {
@@ -56,11 +56,6 @@ function Navbar({ activeSection, scrollToSection }) {
       </div>
       <div className="nav-right">
         <div className="profile-info">
-          {/* <img 
-            src="./src/assets/img/nav.png" 
-            alt="Amit Pandey" 
-            className="nav-profile-img"
-          /> */}
           <img src={amitImage} alt="Amit Pandey" className="nav-profile-img" />
           <div className="nav-name">
             <span className="name">Amit Pandey</span>

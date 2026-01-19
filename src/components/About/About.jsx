@@ -1,4 +1,6 @@
 import './About.css'
+import amitImage from '../../assets/img/amit-nav.png';
+
 
 function About() {
   return (
@@ -8,7 +10,7 @@ function About() {
         <div className="about-content">
           <div className="about-image-container">
             <img 
-              src="./src/assets/img/nav.png" 
+              src={amitImage}
               alt="Amit Pandey" 
               className="about-image"
             />

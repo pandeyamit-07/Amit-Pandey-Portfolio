@@ -3,21 +3,47 @@ import './Portfolio.css'
 import resumePDF from '../../assets/pdf/Amit Pandey Resume .pdf'
 
 // Import project images
-import pos1 from '../../assets/img/pos1.jpg'
-import pos2 from '../../assets/img/pos2.jpg'
-import pos3 from '../../assets/img/pos3.jpg'
-import autodialing1 from '../../assets/img/autodialing1.png'
-import auto2 from '../../assets/img/auto2.png'
-import tms1 from '../../assets/img/tms1.png'
-import mrm from '../../assets/img/mrm.jpg'
-import mrm2 from '../../assets/img/mrm2.png'
+import pos1 from '../../assets/img/project/pos1.jpg'
+import pos2 from '../../assets/img/project/pos2.jpg'
+import pos3 from '../../assets/img/project/pos3.jpg'
+import pos4 from '../../assets/img/project/pos3.jpg'
+import pos5 from '../../assets/img/project/pos3.jpg'
+
+import auto1 from '../../assets/img/project/auto1.png'
+import auto2 from '../../assets/img/project/auto2.png'
+import auto3 from '../../assets/img/project/auto2.png'
+import auto4 from '../../assets/img/project/auto2.png'
+import auto5 from '../../assets/img/project/auto2.png'
+
+import tms1 from '../../assets/img/project/tms1.png'
+import tms2 from '../../assets/img/project/tms1.png'
+import tms3 from '../../assets/img/project/tms1.png'
+import tms4 from '../../assets/img/project/tms1.png'
+import tms5 from '../../assets/img/project/tms1.png'
+
+
+import mrm1 from '../../assets/img/project/mrm1.jpg'
+import mrm2 from '../../assets/img/project/mrm2.png'
+import mrm3 from '../../assets/img/project/mrm2.png'
+import mrm4 from '../../assets/img/project/mrm2.png'
+import mrm5 from '../../assets/img/project/mrm2.png'
+
+
+//certificates
+import cer1 from '../../assets/img/certificate/weblord.png'
+import cer2 from '../../assets/img/certificate/mern.jpg'
+import cer3 from '../../assets/img/certificate/collage.jpg'
+import cer4 from '../../assets/img/certificate/dsa.jpg'
+import cer5 from '../../assets/img/certificate/agentic.jpg'
+import cer6 from '../../assets/img/certificate/c++.jpg'
+
 
 // Projects data
 const projectsData = [
   {
     id: 'project-1',
     title: 'Khana Khanajan - POS Software with Customer panel',
-    images: [pos3, pos1, pos2],
+    images: [pos1, pos2, pos3],
     description: `This is a comprehensive Point-of-Sale (POS) system designed for modern restaurants and food service businesses. The platform features a robust QR code scanning functionality that allows customers to easily access menus and place orders directly from their mobile devices.
 
 Key Features:
@@ -36,7 +62,7 @@ The system is built using React for the frontend, providing a smooth and interac
   {
     id: 'project-2',
     title: 'Automated Outbound Calling System',
-    images: [autodialing1, auto2],
+    images: [auto1, auto2],
     description: `A complete end-to-end automated calling platform that revolutionizes outbound communication for businesses. This system integrates Asterisk PBX with modern web technologies to create a powerful telephony solution.
 
 System Components:
@@ -79,7 +105,7 @@ The system is perfect for personal productivity, team collaboration, or project 
   {
     id: 'project-4',
     title: 'MRM Ecommerce Platform',
-    images: [mrm, mrm2],
+    images: [mrm1, mrm2],
     description: `A fully functional e-commerce platform built with modern web technologies, providing a seamless shopping experience for customers. This project demonstrates proficiency in frontend development and user experience design.
 
 Platform Features:
@@ -436,7 +462,7 @@ function Portfolio() {
             <div className="certificates-grid">
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-1')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/internship2.png" alt="Full Stack Development" />
+                  <img src={cer1} alt="Full Stack Development" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">INTERNSHIP<br/>Full Stack Development - MERN</h3>
@@ -447,7 +473,7 @@ function Portfolio() {
 
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-2')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/mern.jpg" alt="MERN STACK CERTIFICATION" />
+                  <img src={cer2} alt="MERN STACK CERTIFICATION" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">MERN STACK CERTIFICATION</h3>
@@ -458,7 +484,7 @@ function Portfolio() {
 
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-3')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/internship1.jpg" alt="College Internship - MERNe" />
+                  <img src={cer3} alt="College Internship - MERNe" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">College Internship - MERN</h3>
@@ -469,7 +495,7 @@ function Portfolio() {
 
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-4')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/dsa.jpg" alt="DSA in JAVA Certificate" />
+                  <img src={cer4} alt="DSA in JAVA Certificate" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">DSA in JAVA Certification</h3>
@@ -480,7 +506,7 @@ function Portfolio() {
 
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-5')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/agentic.jpg" alt="Hackathon" />
+                  <img src={cer5} alt="Hackathon" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">Hackathon - AI Agent Buildathon</h3>
@@ -491,7 +517,7 @@ function Portfolio() {
 
               <div className="certificate-card" onClick={() => handleCertificateClick('cert-6')}>
                 <div className="certificate-image">
-                  <img src="./src/assets/img/certificate/c++.jpg" alt="C++" />
+                  <img src={cer6} alt="C++" />
                 </div>
                 <div className="certificate-info">
                   <h3 className="certificate-title">C++</h3>

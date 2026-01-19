@@ -1,4 +1,6 @@
 import './Home.css'
+import amitImage from '../../assets/img/amit-slide.png';
+
 
 function Home() {
   return (
@@ -20,7 +22,7 @@ function Home() {
           </div>
           <div className="home-image-container">
             <img 
-              src="./src/assets/img/3.png" 
+              src={amitImage}
               alt="Amit Pandey" 
               className="home-image"
             />
