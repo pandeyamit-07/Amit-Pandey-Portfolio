@@ -50,7 +50,7 @@ const Resume = () => {
   return (
     <section id="resume" className="section resume-section">
       <div className="resume-wrapper">
-        <div className="book" onClick={handleBookClick}>
+        <div className={`book ${activePage > 0 ? 'pages-open' : ''}`} onClick={handleBookClick}>
         
         {/* --- PAGE 1: Cover & Profile --- */}
         <div 

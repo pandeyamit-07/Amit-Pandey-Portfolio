@@ -912,21 +912,15 @@
 }
 
 .project-step::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -1.5rem;
-  width: 0;
-  height: 3rem;
-  border-left: 2px dotted #9ca3af;
-  opacity: 0.6;
+  /* Removed vertical dotted connector line (was overlapping content) */
+  content: none;
 }
 
 .project-step:last-child::after {
   display: none;
 }
 
-.project-step::before {
+/* .project-step::before {
   content: '';
   position: absolute;
   left: 50%;
@@ -937,7 +931,7 @@
   background: #646cff;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px rgba(100, 108, 255, 0.6);
-}
+} */
 
 .project-step.step-right {
   flex-direction: row-reverse;
@@ -1144,7 +1138,7 @@
 
 .project-view-live-btn {
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  background: linear-gradient(135deg, #c71414 0%, #8353f2 100%);
   color: #ffffff;
   text-decoration: none;
   border-radius: 30px;
@@ -1158,7 +1152,7 @@
 .project-view-live-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(100, 108, 255, 0.6);
-  background: linear-gradient(135deg, #535bf2 0%, #646cff 100%);
+  background: linear-gradient(135deg, #8353f2 100%, #c71414 0%,);
 }
 
 /* Responsive Design for Project Modal */

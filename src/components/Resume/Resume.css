@@ -48,6 +48,11 @@
   cursor: pointer;
 }
 
+/* Compensate for the shift when pages are open to keep book centered */
+.book.pages-open {
+  transform: translateX(calc(var(--book-width) * 0.35));
+}
+
 /* --- PAGE PHYSICS --- */
 .page {
   position: absolute;
