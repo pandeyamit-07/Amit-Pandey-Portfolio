@@ -3,30 +3,29 @@ import './Portfolio.css'
 import resumePDF from '../../assets/pdf/Amit Pandey Resume .pdf'
 
 // Import project images
-import pos1 from '../../assets/img/project/pos1.jpg'
-import pos2 from '../../assets/img/project/pos2.jpg'
-import pos3 from '../../assets/img/project/pos3.jpg'
-import pos4 from '../../assets/img/project/pos3.jpg'
-import pos5 from '../../assets/img/project/pos3.jpg'
+import pos0 from '../../assets/img/data/pos/pos0.jpg'
+import pos1 from '../../assets/img/data/pos/pos1.png'
+import pos2 from '../../assets/img/data/pos/pos2.png'
+import pos3 from '../../assets/img/data/pos/pos3.png'
+import pos4 from '../../assets/img/data/pos/pos4.png'
 
-import auto1 from '../../assets/img/project/auto1.png'
-import auto2 from '../../assets/img/project/auto2.png'
-import auto3 from '../../assets/img/project/auto2.png'
-import auto4 from '../../assets/img/project/auto2.png'
-import auto5 from '../../assets/img/project/auto2.png'
+import auto0 from '../../assets/img/data/auto/auto0.png'
+import auto1 from '../../assets/img/data/auto/camp1.png'
+import auto2 from '../../assets/img/data/auto/camp2.png'
+import auto3 from '../../assets/img/data/auto/camp3.png'
+import auto4 from '../../assets/img/data/auto/camp4.png'
 
-import tms1 from '../../assets/img/project/tms1.png'
-import tms2 from '../../assets/img/project/tms1.png'
-import tms3 from '../../assets/img/project/tms1.png'
-import tms4 from '../../assets/img/project/tms1.png'
-import tms5 from '../../assets/img/project/tms1.png'
+import tms0 from '../../assets/img/data/tms/tms0.png'
+import tms1 from '../../assets/img/data/tms/tms1.png'
+import tms2 from '../../assets/img/data/tms/tms2.png'
+import tms3 from '../../assets/img/data/tms/tms3.png'
+import tms4 from '../../assets/img/data/tms/tms4.png'
 
-
-import mrm1 from '../../assets/img/project/mrm1.jpg'
-import mrm2 from '../../assets/img/project/mrm2.png'
-import mrm3 from '../../assets/img/project/mrm2.png'
-import mrm4 from '../../assets/img/project/mrm2.png'
-import mrm5 from '../../assets/img/project/mrm2.png'
+import mrm0 from '../../assets/img/data/mrm/mrm0.jpg'
+import mrm1 from '../../assets/img/data/mrm/mrm1.png'
+import mrm2 from '../../assets/img/data/mrm/mrm2.png'
+import mrm3 from '../../assets/img/data/mrm/mrm3.png'
+import mrm4 from '../../assets/img/data/mrm/mrm4.png'
 
 
 //certificates
@@ -43,7 +42,7 @@ const projectsData = [
   {
     id: 'project-1',
     title: 'Khana Khanajan - POS Software with Customer panel',
-    images: [pos1, pos2, pos3],
+    images: [pos0, pos1, pos2, pos3, pos4],
     description: `This is a comprehensive Point-of-Sale (POS) system designed for modern restaurants and food service businesses. The platform features a robust QR code scanning functionality that allows customers to easily access menus and place orders directly from their mobile devices.
 
 Key Features:
@@ -62,7 +61,7 @@ The system is built using React for the frontend, providing a smooth and interac
   {
     id: 'project-2',
     title: 'Automated Outbound Calling System',
-    images: [auto1, auto2],
+    images: [auto0, auto1, auto2, auto3, auto4],
     description: `A complete end-to-end automated calling platform that revolutionizes outbound communication for businesses. This system integrates Asterisk PBX with modern web technologies to create a powerful telephony solution.
 
 System Components:
@@ -84,7 +83,7 @@ This solution is particularly valuable for businesses requiring automated custom
   {
     id: 'project-3',
     title: 'Task Management System',
-    images: [tms1],
+    images: [tms0, tms1, tms2, tms3, tms4],
     description: `A secure and feature-rich Task Management System built with the MERN stack, designed to help individuals and teams organize their work efficiently. The system emphasizes data security and user privacy with strict data isolation.
 
 Core Features:
@@ -105,7 +104,7 @@ The system is perfect for personal productivity, team collaboration, or project 
   {
     id: 'project-4',
     title: 'MRM Ecommerce Platform',
-    images: [mrm1, mrm2],
+    images: [mrm0, mrm1, mrm2, mrm3, mrm4],
     description: `A fully functional e-commerce platform built with modern web technologies, providing a seamless shopping experience for customers. This project demonstrates proficiency in frontend development and user experience design.
 
 Platform Features:
@@ -251,8 +250,10 @@ function Portfolio() {
       .map(p => p.trim())
       .filter(Boolean)
 
-    const baseImages = project.images && project.images.length > 0
-      ? project.images
+    // Skip the first image (index 0) - it's only for the thumbnail
+    // Use only images from index 1 onwards for the detailed view
+    const baseImages = project.images && project.images.length > 1
+      ? project.images.slice(1) // Skip index 0, use from index 1 onwards
       : []
 
     // Always create 4 steps, cycling through available images

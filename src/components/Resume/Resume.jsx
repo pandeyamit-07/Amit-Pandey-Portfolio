@@ -13,7 +13,7 @@ const Resume = () => {
   };
 
   const handlePrev = () => {
-    setActivePage((prev) => Math.max(prev -1, 0));
+    setActivePage((prev) => Math.max(prev - 1, 0));
   };
 
   // Handle click on book - right side goes next, left side goes previous
@@ -37,13 +37,23 @@ const Resume = () => {
   const getZIndex = (index) => {
     if (activePage === index) {
       // The page currently turning needs to be on absolute top
-      return 100;
+      return 1000;
     } else if (activePage > index) {
-      // Pages already turned (on the left)
-      return index; 
+      // Pages already turned (on the left) - very low z-index so they stay behind
+      // Use negative values to ensure they never interfere with right-side pages
+      return -1000 + index; 
     } else {
-      // Pages waiting on the right stack (Top one is highest index)
-      return 50 - index;
+      // Pages waiting on the right stack (unturned pages)
+      // When going back, the page we're returning to (activePage + 1) should be on top
+      // This ensures that when we go back from a page's back side, its front side appears correctly
+      if (index === activePage + 1) {
+        // This is the page being returned to - give it the highest z-index among unturned pages
+        // Make it very close to the currently turning page so it's clearly visible
+        return 999;
+      }
+      // Other unturned pages - pages with higher index (closer to front) get higher z-index
+      // But lower than the returning page
+      return 100 + index;
     }
   };
 
@@ -74,13 +84,10 @@ const Resume = () => {
               <h2>Amit Pandey</h2>
               <h3 className="role-highlight">Backend Web-Developer / MERN Stack</h3>
               
-              <div className="contact-info">
-                <p>📞 7498593746</p>
-                <p>📧 07.pandeyamit@gmail.com</p>
-                <div className="social-links">
-                  <a href="https://github.com/pandeyamit-07" target="_blank" rel="noopener noreferrer">🐙 GitHub</a>
-                  <a href="https://www.linkedin.com/in/07amitpandey" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
-                </div>
+              <div className="r-contact-info">
+                <p> &#9742; +91 74985 93746</p>
+                <p> &#9993; 07.pandeyamit@gmail.com</p>
+                
               </div>
             </div>
 
@@ -94,163 +101,79 @@ const Resume = () => {
               </p>
               
               <div className="action-buttons">
-                <a href={resumePDF} download="Amit_Pandey_Resume.pdf" className="btn-download">Download CV ⬇️</a>
+                <a href={resumePDF} download="Amit_Pandey_Resume.pdf" className="btn-download">Download CV ⬇📄</a>
                 <a href="#contact" className="btn-contact">Contact Me 📞</a>
               </div>
             </div>
             
-            <button className="btn-nav prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>⬅️ Back</button>
            
           </div>
         </div>
 
 
-        {/* --- PAGE 2: Education --- */}
+        {/* --- PAGE 2: Experiences --- */}
         <div 
           className={`page ${activePage >= 2 ? 'turn' : ''}`} 
           style={{ zIndex: getZIndex(2) }}
         >
-          {/* FRONT: Education */}
-          <div className="page-front education-page">
-            <h2 className="header-title">Education</h2>
-            
-            <div className="timeline-container">
-              <div className="timeline-box">
-                <div className="time-year">July 2022 - June 2025</div>
-                <h3>Bachelor of Computer Application (BCA)</h3>
-                <p>Sailee College | YCMOU</p>
-                <p className="coursework">Relevant Coursework: Web Development, Database Management, Data Structure, Software Engineering Principles, Cyber Security Fundamentals, Linux and Windows Operating Systems, (OOPS) Concepts.</p>
-              </div>
-            </div>
-
-            <button className="btn-nav next" onClick={(e) => { e.stopPropagation(); handleNext(); }}>Next ➡️</button>
-          </div>
-
-          {/* BACK: Certifications */}
-          <div className="page-back certifications-page">
-            <h2 className="header-title">Certifications</h2>
-            
-            <div className="timeline-container">
-              <div className="timeline-box">
-                <div className="time-year">January 2025 - July 2025</div>
-                <h3>MERN Web Development</h3>
-                <p>Sigma 6.0, Apna College</p>
-                <span className="institution">Certified</span>
-              </div>
-
-              <div className="timeline-box">
-                <div className="time-year">03/04/2025</div>
-                <h3>VISION Agentic AI Hackathon</h3>
-                <p>Built a no-code AI assistant capable of automating tasks such as making calls, managing contacts, sending emails, setting reminders, scheduling, updating, and deleting tasks. My role focused on designing intuitive workflows using n8n and implementing natural language interactions through Lovable AI, tailored for efficiency in a no-code environment.</p>
-              </div>
-
-              <div className="timeline-box">
-                <div className="time-year">January 2023 - March 2023</div>
-                <h3>Digital Marketing</h3>
-                <p>Sailee Institute (College Integrated Course)</p>
-                <span className="institution">Certified</span>
-              </div>
-            </div>
-
-            <button className="btn-nav prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>⬅️ Back</button>
-          </div>
-        </div>
-
-        {/* --- PAGE 3: Projects --- */}
-        <div 
-          className={`page ${activePage >= 3 ? 'turn' : ''}`} 
-          style={{ zIndex: getZIndex(3) }}
-        >
-          {/* FRONT: Projects (First 2) */}
-          <div className="page-front projects-page">
-            <h2 className="header-title">Projects</h2>
-            
-            <div className="project-card">
-              <h3>1) POS Model with QR Scanning Table (Khana-Khazana)</h3>
-              <p className="project-desc">Developed a Point-of-Sale system with QR code scanning functionality.</p>
-              <p className="project-features"><strong>Features:</strong> Developed RESTful APIs for User Authentication, Customer & Admin panel & Live Notification.</p>
-              <p className="project-tech"><strong>Technologies Used:</strong> React, Node.js, Express.js, JWT, WebSocket & MySQL.</p>
-            </div>
-
-            <div className="project-card">
-              <h3>2) E-commerce Website (MRM Wholesale)</h3>
-              <p className="project-desc">Implemented product management and shopping cart functionality platform for a wholesaler.</p>
-              <p className="project-tech"><strong>Technologies Used:</strong> Node.js, Express.js, MySQL, HTML, CSS, JavaScript.</p>
-            </div>
-
-            <button className="btn-nav next" onClick={(e) => { e.stopPropagation(); handleNext(); }}>Next ➡️</button>
-          </div>
-
-          {/* BACK: Projects (Last one) */}
-          <div className="page-back projects-page">
-            <h2 className="header-title">Projects</h2>
-            
-            <div className="project-card">
-              <h3>3) Task Management System</h3>
-              <p className="project-desc">Built a secure Task Management System using the MERN Stack with Role-Based Authentication, ensuring strict data isolation so users exclusively manage their private dashboards.</p>
-              <p className="project-features">Engineered advanced data handling features including Search, Filtering, and Pagination within the React interface to optimize performance and navigation for large task lists.</p>
-            </div>
-
-            <button className="btn-nav prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>⬅️ Back</button>
-          </div>
-        </div>
-
-
-        {/* --- PAGE 4: Experiences --- */}
-        <div 
-          className={`page ${activePage >= 4 ? 'turn' : ''}`} 
-          style={{ zIndex: getZIndex(4) }}
-        >
-          {/* FRONT: Experience 1 */}
           <div className="page-front experiences-page">
             <h2 className="header-title">Experiences</h2>
-            
             <div className="experience-box">
               <div className="exp-header">
                 <h3>Internship Full (MERN) Stack Developer</h3>
+                <div className="exp-header-info">
                 <span className="exp-company">WEBLORD INFO TECH PVT LTD</span>
                 <span className="exp-duration">6 Months</span>
+                </div>
               </div>
               <ul className="exp-responsibilities">
                 <li>Designed and developed a complete automated outbound calling system from scratch on Ubuntu, configuring Asterisk PBX as the core telephony engine for call routing, media playback, and DTMF-based IVR logic.</li>
                 <li>Built a Node.js + Express backend integrated with Asterisk Manager Interface (AMI) using the asterisk-manager library to programmatically originate calls, track real-time events, and manage sequential call campaigns.</li>
                 <li>Integrated physical telephony hardware by compiling and configuring the chan_dongle driver, enabling Asterisk to place SIM-based calls via a Huawei GSM modem without SIP or VoIP providers.</li>
                 <li>Authored and maintained Asterisk dialplans (extensions.conf) and secured AMI access via manager.conf, implementing event-driven call workflows using custom Event Emitters.</li>
-                <li>Implemented audio processing pipelines using FFmpeg to convert uploaded MP3 files into GSM 8kHz format for dynamic call playback.</li>
                 <li>Developed a React (Vite) analytics dashboard with filters, charts, and call performance metrics, and stored call logs in MySQL for status, duration, and user-input analysis.</li>
                 <li>Gained hands-on experience working on a live production real estate platform (housingmagic.com), collaborating with the team to implement and debug features related to property listings and user management using MySQL, Express.js, React, Next.js, and Node.js.</li>
               </ul>
             </div>
 
-            <button className="btn-nav next" onClick={(e) => { e.stopPropagation(); handleNext(); }}>Next ➡️</button>
           </div>
 
-          {/* BACK: Experience 2 */}
-          <div className="page-back experiences-page">
-            <h2 className="header-title">Experiences</h2>
+          {/* BACK: Education */}
+          <div className="page-back education-page">
+            <h2 className="header-title">Education</h2>
             
-            <div className="experience-box">
-              <div className="exp-header">
-                <h3>Teaching Assistant (Web Development & Programming)</h3>
-                <span className="exp-company">Claritech Computer Institute | Borivali</span>
-                <span className="exp-duration">6 Months</span>
+            <div className="timeline-container">
+
+              <div className="timeline-box">
+                <div className="time-year">January 2025 - July 2025</div>
+                <h3>MERN Web Development</h3>
+                <p>Sigma 6.0, Apna College, <span style={{color: 'green'}}>Certified</span></p>
+
               </div>
-              <ul className="exp-responsibilities">
-                <li>Assisting in Frontend, Node.js, Express, MongoDB, MySQL and Python language.</li>
-                <li>Provided hands-on support and guidance to students in completing assignments and projects.</li>
-              </ul>
+
+              <div className="timeline-box">
+                <div className="time-year">03 April 2025</div>
+                <h3>VISION Agentic AI Hackathon</h3>
+                <p>Built a no-code AI assistant capable of automating tasks such as making calls, managing contacts, sending emails, setting reminders, scheduling, updating, and deleting tasks. My role focused on designing intuitive workflows using n8n and implementing natural language interactions through Lovable AI, tailored for efficiency in a no-code environment.</p>
+              </div>
+
+              <div className="timeline-box">
+                <div className="time-year">2022 - 2025</div>
+                <h3>Bachelor of Computer Application (BCA)</h3>
+                <p>Sailee Institute (College Integrated Course), Completed</p>
+                <p className="coursework">Relevant Coursework: Web Development, Database Management, Data Structure, Software Engineering Principles, Cyber Security Fundamentals, Linux and Windows Operating Systems, (OOPS) Concepts.</p>
+              </div>
             </div>
 
-            <button className="btn-nav prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>⬅️ Back</button>
           </div>
         </div>
 
-        {/* --- PAGE 5: Skills & Personal Info --- */}
+
+        {/* --- PAGE 3: Skills & Personal Info --- */}
         <div 
-          className={`page ${activePage >= 5 ? 'turn' : ''}`} 
-          style={{ zIndex: getZIndex(5) }}
+          className={`page ${activePage >= 3 ? 'turn' : ''}`} 
+          style={{ zIndex: getZIndex(3) }}
         >
-          {/* FRONT: Skills */}
           <div className="page-front skills-page">
             <h2 className="header-title">Skills</h2>
             
@@ -296,7 +219,6 @@ const Resume = () => {
               </div>
             </div>
 
-            <button className="btn-nav next" onClick={(e) => { e.stopPropagation(); handleNext(); }}>Next ➡️</button>
           </div>
 
           {/* BACK: Personal Info & Declaration */}
@@ -328,7 +250,6 @@ const Resume = () => {
               <p>📞 7498593746</p>
             </div>
 
-            <button className="btn-nav prev" onClick={(e) => { e.stopPropagation(); handlePrev(); }}>⬅️ Back</button>
           </div>
         </div>
 

@@ -24,6 +24,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
 }
 
 .portfolio-tab:hover {
@@ -69,6 +72,8 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(100, 108, 255, 0.2);
   height: 500px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .project-card:hover {
@@ -945,9 +950,9 @@
 }
 
 .step-image img {
-  width: 180px;
-  height: 160px;
-  object-fit: contain;
+  width: 500px;
+  height: 280px;
+  object-fit: fill;
   filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
 }
 
@@ -1159,6 +1164,7 @@
 @media (max-width: 968px) {
   .project-modal-content {
     max-width: 95vw;
+    max-height: 95vh;
   }
 
   .project-modal-header {
@@ -1178,6 +1184,11 @@
 
   .project-modal-title {
     font-size: 1.6rem;
+  }
+
+  .step-image img {
+    width: 400px;
+    height: 250px;
   }
 }
 
@@ -1241,55 +1252,215 @@
     text-align: center;
   }
 
+  .step-image {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .step-image img {
-    width: 150px;
-    height: 140px;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  .project-modal-tech-tags {
+    gap: 0.6rem;
+  }
+
+  .project-modal-tech-tag {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 }
 
 /* Responsive Design */
 @media (max-width: 968px) {
+  .portfolio-tabs {
+    gap: 0.8rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .portfolio-tab {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
   .projects-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
 
   .certificates-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-}
-
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  .certificates-grid {
-    grid-template-columns: 1fr;
+  .project-card {
+    height: auto;
+    min-height: 450px;
   }
 
   .skills-wrapper {
-    grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .skills-icons-container {
     min-height: 500px;
-    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-section {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .portfolio-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .portfolio-tab {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .project-card {
+    height: auto;
+    min-height: auto;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-info {
+    padding: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
+
+  .project-tech span {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .certificate-card {
+    margin: 0;
+  }
+
+  .certificate-image {
+    height: 180px;
+  }
+
+  .certificate-info {
+    padding: 1.2rem;
+  }
+
+  .certificate-title {
+    font-size: 1.1rem;
+  }
+
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .skills-icons-container {
+    min-height: 400px;
+    padding: 1.5rem 1rem;
   }
 
   .skill-circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 
   .skill-logo-img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .skills-list-container {
+    padding: 1.5rem;
+  }
+
+  .skills-list-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .skills-list {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .skill-item {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
   }
 }
 
+@media (max-width: 480px) {
+  .portfolio-tabs {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .portfolio-tab {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .certificate-image {
+    height: 160px;
+  }
+
+  .skills-icons-container {
+    min-height: 350px;
+    padding: 1rem 0.5rem;
+  }
+
+  .skill-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+}

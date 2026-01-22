@@ -126,6 +126,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
 }
 
 .submit-btn:hover {
@@ -140,20 +143,103 @@
 
 /* Responsive Design */
 @media (max-width: 968px) {
+  .contact-section {
+    padding: 5rem 2rem 3rem;
+  }
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+
+  .contact-form {
+    order: 1;
   }
 }
 
 @media (max-width: 640px) {
+  .contact-section {
+    padding: 5rem 1rem 2rem;
+  }
+
   .contact-content {
     gap: 2rem;
+    margin-top: 1.5rem;
   }
 
   .contact-item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-details h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-item {
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-details {
     text-align: center;
   }
 

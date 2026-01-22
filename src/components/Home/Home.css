@@ -90,7 +90,7 @@
   border: 1px solid #646cff;
   border-radius: 25px;
   color: #646cff;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
@@ -100,6 +100,75 @@
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(100, 108, 255, 0.4);
+}
+
+.home-action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 0.8s both;
+  flex-wrap: wrap;
+}
+
+.home-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
+}
+
+.home-social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.github-btn {
+  background: rgba(100, 108, 255, 0.1);
+  border-color: #ffd600;
+  color: #daa709;
+}
+
+.github-btn:hover {
+  background: #0c1f01;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(62, 148, 16, 0.4);
+}
+
+.linkedin-btn {
+  background: rgba(0, 119, 181, 0.1);
+  border-color: #ffd600;
+  color: #daa709;
+}
+
+.linkedin-btn:hover {
+  background: #0077b5;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+}
+
+.resume-btn {
+  background: rgba(100, 108, 255, 0.1);
+  border-color: #ffd600;
+  color: #daa709;
+}
+
+.resume-btn:hover {
+  background: linear-gradient(135deg, #646cff 0%, #535bf2 100%);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(100, 108, 255, 0.4);
 }
 
 .home-image-container {
@@ -148,6 +217,7 @@
   .home-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 3rem;
   }
 
   .greeting {
@@ -164,6 +234,112 @@
 
   .home-section {
     padding: 8rem 1.5rem 3rem;
+  }
+
+  .home-action-buttons {
+    justify-content: center;
+  }
+
+  .home-social-btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .home-social-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .home-image {
+    max-width: 350px;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-section {
+    padding: 6rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .home-container {
+    width: 100%;
+  }
+
+  .home-content {
+    gap: 2rem;
+  }
+
+  .greeting {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .welcome {
+    font-size: 1.2rem;
+  }
+
+  .role {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-tags {
+    gap: 0.7rem;
+    justify-content: center;
+  }
+
+  .skill-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.65rem;
+  }
+
+  .home-action-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .home-social-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .home-image-container {
+    order: -1;
+  }
+
+  .home-image {
+    max-width: 280px;
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 1.75rem;
+  }
+
+  .welcome {
+    font-size: 1.1rem;
+  }
+
+  .role {
+    font-size: 0.95rem;
+  }
+
+  .skill-tag {
+    font-size: 0.6rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .home-image {
+    max-width: 240px;
   }
 }
 

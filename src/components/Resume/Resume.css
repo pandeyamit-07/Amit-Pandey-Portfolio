@@ -13,6 +13,21 @@
   --anim-duration: 0.6s; /* Slightly faster for snappier feel */
 }
 
+/* Mobile responsive variables */
+@media (max-width: 768px) {
+  :root {
+    --book-width: 320px;
+    --book-height: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --book-width: 280px;
+    --book-height: 400px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -57,7 +72,7 @@
 .page {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 95%;
   top: 0;
   left: 0;
   transform-origin: left; /* Hinges on the left spine */
@@ -398,7 +413,7 @@
   border-radius: 10px;
   margin-bottom: 5px;
 }
-.timeline-box h3 { font-size: 0.95rem; margin-bottom: 2px; }
+.timeline-box h3 { font-size: 0.95rem; margin-bottom: 2px; color: #333; }
 .timeline-box p { font-size: 0.8rem; color: #666; margin-bottom: 2px; }
 .institution { font-size: 0.75rem; font-style: italic; color: #888; }
 
@@ -510,14 +525,14 @@
 }
 
 /* --- PROFILE PAGE ADDITIONS --- */
-.contact-info {
-  margin-top: 6px;
+.r-contact-info {
+  margin-top: 10px;
   font-size: 0.7rem;
   text-align: center;
 }
 
-.contact-info p {
-  margin: 2px 0;
+.r-contact-info p {
+  margin: 5px 0px;
   color: #555;
 }
 
@@ -598,7 +613,7 @@
 }
 
 .experience-box {
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   background: rgba(100, 108, 255, 0.05);
   padding: 10px;
   border-radius: 6px;
@@ -612,6 +627,11 @@
 
 .exp-header {
   margin-bottom: 8px;
+}
+
+.exp-header-info {
+  display: flex;
+  gap: 20px;
 }
 
 .exp-header h3 {
@@ -638,9 +658,9 @@
 
 .exp-responsibilities {
   padding-left: 18px;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   color: #555;
-  margin: 8px 0 0 0;
+  margin: -5px 0 0 0;
   line-height: 1.4;
   flex: 1;
   overflow: hidden;
@@ -683,4 +703,261 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* Responsive Design for Resume */
+@media (max-width: 968px) {
+  .resume-section {
+    padding: 5rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .resume-wrapper {
+    padding: 1rem 0;
+  }
+
+  .book {
+    transform: scale(0.9);
+  }
+
+  .book.pages-open {
+    transform: translateX(calc(var(--book-width) * 0.35)) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-section {
+    padding: 5rem 0.5rem 2rem;
+  }
+
+  .resume-wrapper {
+    perspective: 1200px;
+  }
+
+  .book {
+    transform: scale(0.85);
+  }
+
+  .book.pages-open {
+    transform: translateX(calc(var(--book-width) * 0.35)) scale(0.85);
+  }
+
+  .cover-title {
+    font-size: 2rem;
+  }
+
+  .cover-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .profile-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .profile-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .profile-header h3 {
+    font-size: 0.75rem;
+  }
+
+  .profile-body {
+    font-size: 0.7rem;
+  }
+
+  .page-front,
+  .page-back {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .resume-section {
+    padding: 5rem 0.5rem 1.5rem;
+  }
+
+  .resume-wrapper {
+    perspective: 1000px;
+  }
+
+  .book {
+    transform: scale(0.75);
+  }
+
+  .book.pages-open {
+    transform: translateX(calc(var(--book-width) * 0.3)) scale(0.75);
+  }
+
+  .cover-title {
+    font-size: 1.75rem;
+    letter-spacing: 1px;
+  }
+
+  .cover-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .click-instruction {
+    font-size: 0.7rem;
+  }
+
+  .pulse-loader {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profile-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-header h2 {
+    font-size: 1rem;
+  }
+
+  .role-highlight {
+    font-size: 0.85rem;
+  }
+
+  .r-contact-info {
+    font-size: 0.65rem;
+  }
+
+  .profile-body {
+    font-size: 0.65rem;
+  }
+
+  .profile-body p {
+    margin-bottom: 8px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn-download,
+  .btn-contact {
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+  }
+
+  .header-title {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 0.7rem;
+  }
+
+  .timeline-box h3 {
+    font-size: 0.85rem;
+  }
+
+  .timeline-box p {
+    font-size: 0.7rem;
+  }
+
+  .time-year {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .exp-header h3 {
+    font-size: 0.8rem;
+  }
+
+  .exp-company {
+    font-size: 0.7rem;
+  }
+
+  .exp-duration {
+    font-size: 0.65rem;
+  }
+
+  .exp-responsibilities {
+    font-size: 0.65rem;
+    padding-left: 15px;
+  }
+
+  .skill-section {
+    margin-bottom: 8px;
+  }
+
+  .skill-section h3 {
+    font-size: 0.8rem;
+  }
+
+  .tag-container {
+    gap: 6px;
+  }
+
+  .tag-container span {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+
+  .personal-info p {
+    font-size: 0.65rem;
+  }
+
+  .declaration p {
+    font-size: 0.65rem;
+  }
+
+  .mini-contact {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-section {
+    padding: 4rem 0.25rem 1rem;
+  }
+
+  .resume-wrapper {
+    perspective: 800px;
+  }
+
+  .book {
+    transform: scale(0.65);
+  }
+
+  .book.pages-open {
+    transform: translateX(calc(var(--book-width) * 0.25)) scale(0.65);
+  }
+
+  .cover-title {
+    font-size: 1.5rem;
+  }
+
+  .page-front,
+  .page-back {
+    padding: 0.8rem;
+  }
+
+  .profile-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .profile-header h2 {
+    font-size: 0.9rem;
+  }
+
+  .profile-body {
+    font-size: 0.6rem;
+  }
+
+  .header-title {
+    font-size: 0.85rem;
+  }
 }
