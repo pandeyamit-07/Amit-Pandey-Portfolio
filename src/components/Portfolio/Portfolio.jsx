@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './Portfolio.css'
-import resumePDF from '../../assets/pdf/Amit Pandey Resume .pdf'
 
 // Import project images
 import pos0 from '../../assets/img/data/pos/pos0.jpg'
@@ -10,10 +9,10 @@ import pos3 from '../../assets/img/data/pos/pos3.png'
 import pos4 from '../../assets/img/data/pos/pos4.png'
 
 import auto0 from '../../assets/img/data/auto/auto0.png'
-import auto1 from '../../assets/img/data/auto/camp1.png'
-import auto2 from '../../assets/img/data/auto/camp2.png'
-import auto3 from '../../assets/img/data/auto/camp3.png'
-import auto4 from '../../assets/img/data/auto/camp4.png'
+import auto1 from '../../assets/img/data/auto/auto1.webp'
+import auto2 from '../../assets/img/data/auto/auto2.webp'
+import auto3 from '../../assets/img/data/auto/auto3.webp'
+import auto4 from '../../assets/img/data/auto/auto4.webp'
 
 import tms0 from '../../assets/img/data/tms/tms0.png'
 import tms1 from '../../assets/img/data/tms/tms1.png'
@@ -27,7 +26,6 @@ import mrm2 from '../../assets/img/data/mrm/mrm2.png'
 import mrm3 from '../../assets/img/data/mrm/mrm3.png'
 import mrm4 from '../../assets/img/data/mrm/mrm4.png'
 
-
 //certificates
 import cer1 from '../../assets/img/certificate/weblord.png'
 import cer2 from '../../assets/img/certificate/mern.jpg'
@@ -36,88 +34,80 @@ import cer4 from '../../assets/img/certificate/dsa.jpg'
 import cer5 from '../../assets/img/certificate/agentic.jpg'
 import cer6 from '../../assets/img/certificate/c++.jpg'
 
+//certificates Pdf
+import cert1 from '../../assets/pdf/weblord.pdf'
+import cert2 from '../../assets/pdf/mern.pdf'
+import cert3 from '../../assets/pdf/collage.pdf'
+import cert4 from '../../assets/pdf/dsa.pdf'
+import cert5 from '../../assets/pdf/agentic.pdf'
+import cert6 from '../../assets/pdf/c++.pdf'
 
-// Projects data
+// Projects data - all projects now follow desc1..desc4 pattern
 const projectsData = [
   {
     id: 'project-1',
     title: 'Khana Khanajan - POS Software with Customer panel',
     images: [pos0, pos1, pos2, pos3, pos4],
-    description: `This is a comprehensive Point-of-Sale (POS) system designed for modern restaurants and food service businesses. The platform features a robust QR code scanning functionality that allows customers to easily access menus and place orders directly from their mobile devices.
 
-Key Features:
-• Advanced QR Code Integration: Seamless menu access and ordering through QR code scanning
-• Dual Panel System: Separate interfaces for customers and administrators with role-based access
-• Real-time Notifications: Live updates using WebSocket technology for instant order status changes
-• Secure Authentication: JWT-based authentication ensuring secure user sessions
-• RESTful API Architecture: Well-structured backend APIs for scalable and maintainable code
-• Responsive Design: Optimized for both desktop and mobile devices
+    desc1: `This is a comprehensive Point-of-Sale (POS) system designed for modern restaurants and food service businesses. Customers can scan a QR code to access the menu and place orders directly from their mobile devices.`,
 
-Technical Implementation:
-The system is built using React for the frontend, providing a smooth and interactive user experience. The backend leverages Node.js and Express.js to handle server-side logic and API endpoints. MySQL database ensures reliable data storage and retrieval. WebSocket integration enables real-time communication between the customer panel and admin dashboard, allowing instant order updates and notifications.`,
-    technologies: ['React', 'Node.js', 'MongoDB', 'JWT', 'Web-Socket'],
+    desc2: `/admin page to go on admin Pannel.The system provides a dual-panel architecture with a dedicated an admin pannel. Admins can also do order for window customers efficiently. The application is used for structured data storage, ensuring performance, scalability, and reliability.`,
+
+    desc3: `Real-time communication is implemented using WebSocket technology, allowing instant order updates and notifications between customer and admin panels. Secure authentication is handled using JWT.`,
+
+    desc4: `The Inventory page enables the admin to add, update, and delete items, as well as manage inventory stock levels and item quantities.`,
+
+    technologies: ['React', 'Node.js', 'MySQL', 'JWT', 'WebSocket', 'pdfkit'],
     liveLink: 'https://khana-khajana-eayz.onrender.com/'
   },
+
   {
     id: 'project-2',
     title: 'Automated Outbound Calling System',
     images: [auto0, auto1, auto2, auto3, auto4],
-    description: `A complete end-to-end automated calling platform that revolutionizes outbound communication for businesses. This system integrates Asterisk PBX with modern web technologies to create a powerful telephony solution.
 
-System Components:
-• Asterisk GSM Calling Engine: Utilizes SIM-based calling infrastructure with advanced audio playback capabilities and DTMF input handling for interactive voice responses
-• Node.js Campaign Controller: Manages sequential calling operations with intelligent scheduling and event-driven architecture for optimal performance
-• React Analytics Dashboard: Comprehensive call analytics with real-time metrics, interactive charts, and advanced filtering options
+    desc1: `A complete end-to-end automated calling platform that outbound communication for businesses and campaigns. Core system components include an Asterisk GSM calling engine (SIM-based) with huawei sim dongle on Ubantu System. While using Sim dongle and sim the Campaign System is working locally.`,
 
-Key Capabilities:
-• Automated Campaign Management: Schedule and execute large-scale calling campaigns with minimal manual intervention
-• Audio File Upload: Easy integration of custom audio messages for personalized communication
-• Real-time Monitoring: Live tracking of call status, duration, and outcomes
-• Advanced Analytics: Detailed reporting with visualizations to track campaign performance
-• Scalable Architecture: Built to handle high-volume calling operations efficiently
+    desc2: ` Node.js campaign controller for sequencing and can upload pre-recorded audio file for custom messages. The solution is built to be scalable for high-volume operations and is ideal for appointment reminders, customer outreach, and marketing campaigns.`,
 
-This solution is particularly valuable for businesses requiring automated customer outreach, appointment reminders, or marketing campaigns.`,
-    technologies: ['Node.js', 'Asterisk PBX', 'Chan Dongle', 'GSM Dongle'],
-    liveLink: 'https://github.com/pandeyamit-07/Automated-Outbound-Calling-System'
+    desc3: `From here Admin can upload customers name and number excel or sql with group name. Then Start campaign with a name and decide which audio and which group of customer number have to call.`,
+
+    desc4: ` A React analytics dashboard for monitoring. It include , DTMF handling for interactive responses, automated campaign management, and real-time monitoring of call status and outcomes.`,
+
+    technologies: ['Node.js', 'Asterisk PBX', 'Chan Dongle', 'Asterisk Manager','mysql'],
+    liveLink: 'http://calldash.hottcart.com/'
   },
+
   {
     id: 'project-3',
     title: 'Task Management System',
     images: [tms0, tms1, tms2, tms3, tms4],
-    description: `A secure and feature-rich Task Management System built with the MERN stack, designed to help individuals and teams organize their work efficiently. The system emphasizes data security and user privacy with strict data isolation.
 
-Core Features:
-• Role-Based Authentication: Secure user authentication ensuring that each user can only access their own tasks and data
-• Private Dashboards: Complete data isolation so users exclusively manage their personal task lists
-• Advanced Search Functionality: Quick and efficient task searching across all user's tasks
-• Smart Filtering: Filter tasks by status, priority, date, or custom criteria
-• Pagination System: Optimized performance for handling large task lists without compromising speed
-• Intuitive Interface: Clean and user-friendly design built with React
+    desc1: `A secure role-based authentication and feature-rich Task Management System built with the MERN stack to help individuals and teams organize work efficiently.`,
 
-Technical Highlights:
-The application uses MongoDB for flexible data storage, allowing for complex task structures and relationships. The React frontend provides a smooth, responsive experience with real-time updates. RESTful API architecture ensures clean separation between frontend and backend, making the system maintainable and scalable.
+    desc2: `Core features include role-based authentication, private dashboards (data isolation), advanced search, smart filtering, and pagination for large task lists.`,
 
-The system is perfect for personal productivity, team collaboration, or project management needs, with a strong focus on user privacy and data security.`,
-    technologies: ['React', 'Chart.js', 'REST API', 'MongoDb'],
+    desc3: `A responsive React frontend including wuth Search feature by Task titile and Filter option on Task Status and RESTful APIs for clean separation between frontend and backend.`,
+
+    desc4: `Also can edit or delete the task and task status between Pending to Completed. This system is suited for personal productivity and project management while prioritizing user privacy and performance.`,
+
+    technologies: ['React', 'Node.js', 'Express', 'MongoDb'],
     liveLink: 'https://task-management-system-1-tg23.onrender.com/'
   },
+
   {
     id: 'project-4',
     title: 'MRM Ecommerce Platform',
     images: [mrm0, mrm1, mrm2, mrm3, mrm4],
-    description: `A fully functional e-commerce platform built with modern web technologies, providing a seamless shopping experience for customers. This project demonstrates proficiency in frontend development and user experience design.
 
-Platform Features:
-• Dynamic Product Catalog: Real-time product rendering with detailed information and images
-• Shopping Cart Functionality: Full-featured cart system with add, remove, and update capabilities
-• Streamlined Checkout Process: Simplified checkout interface for quick and easy purchases
-• Responsive Design: Optimized for all device sizes, from mobile phones to desktop computers
-• Intuitive Navigation: Easy-to-use interface that guides users through their shopping journey
+    desc1: `A fully functional e-commerce platform built with modern web technologies that offers a seamless shopping experience.`,
 
-User Experience:
-The platform focuses on providing an intuitive and enjoyable shopping experience. Products are displayed in an organized manner with clear pricing and descriptions. The shopping cart allows users to review their selections before checkout, and the checkout process is designed to be quick and straightforward.
+    desc2: `Platform features include a dynamic product catalog, shopping cart with add/remove/update, and a streamlined checkout process for quick purchases.`,
 
-This project showcases skills in HTML, CSS, and JavaScript, creating a responsive and interactive web application that meets modern e-commerce standards.`,
+    desc3: `The UI emphasizes responsive design and intuitive navigation so users can browse, review cart items, and complete purchases easily across devices.`,
+
+    desc4: `This project showcases frontend skills in HTML, CSS, and JavaScript and demonstrates building a responsive, user-friendly web application.`,
+
     technologies: ['React', 'Node.js', 'MongoDB', 'JWT'],
     liveLink: 'https://pandeyamit-07.github.io/MRM-E-Commerce---My-first-project/'
   }
@@ -137,6 +127,25 @@ function Portfolio() {
       ...prev,
       [projectId]: !prev[projectId]
     }))
+  }
+
+  const getCertificatePdfSrc = () => {
+    switch (selectedCertificate) {
+      case 'cert-1':
+        return cert1
+      case 'cert-2':
+        return cert2
+      case 'cert-3':
+        return cert3
+      case 'cert-4':
+        return cert4
+      case 'cert-5':
+        return cert5
+      case 'cert-6':
+        return cert6
+      default:
+        return null
+    }
   }
 
   const handleCertificateClick = (certificateId) => {
@@ -242,39 +251,53 @@ function Portfolio() {
     }
   }, [activePortfolioTab])
 
+  // Helper to get 4 paragraphs for a project (desc1..desc4 preferred, fallback to splitting description)
+  const getProjectParagraphs = (project) => {
+    if (!project) return ['', '', '', '']
+
+    if (project.desc1) {
+      return [
+        project.desc1 || '',
+        project.desc2 || '',
+        project.desc3 || '',
+        project.desc4 || ''
+      ]
+    }
+
+    if (project.description) {
+      const ps = project.description
+        .split('\n\n')
+        .map(p => p.trim())
+        .filter(Boolean)
+      // ensure at least 4 entries (repeat last if needed)
+      while (ps.length < 4) ps.push(ps[ps.length - 1] || '')
+      return ps.slice(0, 4)
+    }
+
+    return ['', '', '', '']
+  }
+
   const buildTimelineItems = (project) => {
     if (!project) return []
-
-    const descriptionParagraphs = project.description
-      .split('\n\n')
-      .map(p => p.trim())
-      .filter(Boolean)
-
-    // Skip the first image (index 0) - it's only for the thumbnail
-    // Use only images from index 1 onwards for the detailed view
-    const baseImages = project.images && project.images.length > 1
-      ? project.images.slice(1) // Skip index 0, use from index 1 onwards
-      : []
-
-    // Always create 4 steps, cycling through available images
-    const totalSteps = 4
-    const fallbackText =
-      descriptionParagraphs[descriptionParagraphs.length - 1] || ''
-
-    return Array.from({ length: totalSteps }, (_, index) => {
-      const image =
-        baseImages.length > 0
-          ? baseImages[index % baseImages.length]
-          : null
-
-      const text = descriptionParagraphs[index] || fallbackText
-
-      return {
-        image,
-        text
-      }
-    })
+  
+    const descriptions = [
+      project.desc1,
+      project.desc2,
+      project.desc3,
+      project.desc4
+    ]
+  
+    const baseImages =
+      project.images && project.images.length > 1
+        ? project.images.slice(1)
+        : []
+  
+    return descriptions.map((text, index) => ({
+      image: baseImages[index % baseImages.length],
+      text
+    }))
   }
+  
 
   return (
     <section id="portfolio" className="section portfolio-section">
@@ -307,42 +330,56 @@ function Portfolio() {
         <div className="portfolio-content">
           {activePortfolioTab === 'projects' && (
             <div className="projects-grid">
-              {projectsData.map((project) => (
-                <div 
-                  key={project.id} 
-                  className="project-card"
-                  onClick={() => handleProjectClick(project.id)}
-                >
-                  <div className="project-image">
-                    <img src={project.images[0]} alt={project.title} />
-                    <div className="project-overlay">
-                      <div className="project-link">View Details</div>
+              {projectsData.map((project) => {
+                const paragraphs = getProjectParagraphs(project)
+
+                return (
+                  <div 
+                    key={project.id} 
+                    className="project-card"
+                    onClick={() => handleProjectClick(project.id)}
+                  >
+                    <div className="project-image">
+                      <img src={project.images[0]} alt={project.title} />
+                      <div className="project-overlay">
+                        <div className="project-link">View Details</div>
+                      </div>
+                    </div>
+                    <div className="project-info">
+                      <h3 className="project-title">{project.title}</h3>
+                      <div className="project-description-wrapper">
+                        <p className={`project-description ${expandedDescriptions[project.id] ? '' : 'description-truncated'}`}>
+                          {paragraphs[0]}
+                        </p>
+
+                        {/* expanded content: show desc2-desc4 when expanded */}
+                        {expandedDescriptions[project.id] && (
+                          <>
+                            {paragraphs[1] && <p className="project-description-expanded">{paragraphs[1]}</p>}
+                            {paragraphs[2] && <p className="project-description-expanded">{paragraphs[2]}</p>}
+                            {paragraphs[3] && <p className="project-description-expanded">{paragraphs[3]}</p>}
+                          </>
+                        )}
+
+                        <button 
+                          className="show-more-btn"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            toggleDescription(project.id)
+                          }}
+                        >
+                          {expandedDescriptions[project.id] ? 'Show less' : 'Show more'}
+                        </button>
+                      </div>
+                      <div className="project-tech">
+                        {project.technologies.map((tech, index) => (
+                          <span key={index}>{tech}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="project-info">
-                    <h3 className="project-title">{project.title}</h3>
-                    <div className="project-description-wrapper">
-                      <p className={`project-description ${expandedDescriptions[project.id] ? '' : 'description-truncated'}`}>
-                        {project.description.split('\n\n')[0]}
-                      </p>
-                      <button 
-                        className="show-more-btn"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          toggleDescription(project.id)
-                        }}
-                      >
-                        {expandedDescriptions[project.id] ? 'Show less' : 'Show more'}
-                      </button>
-                    </div>
-                    <div className="project-tech">
-                      {project.technologies.map((tech, index) => (
-                        <span key={index}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
 
@@ -537,11 +574,13 @@ function Portfolio() {
           <div className="pdf-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="pdf-modal-close" onClick={closeModal}>×</button>
             <div className="pdf-container">
-              <iframe
-                src={resumePDF}
-                className="pdf-iframe"
-                title="Certificate PDF"
-              />
+              {getCertificatePdfSrc() && (
+                <iframe
+                  src={getCertificatePdfSrc()}
+                  className="pdf-iframe"
+                  title="Certificate PDF"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -608,4 +647,3 @@ function Portfolio() {
 }
 
 export default Portfolio
-

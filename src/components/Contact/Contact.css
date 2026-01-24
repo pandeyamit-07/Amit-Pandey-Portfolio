@@ -155,6 +155,7 @@
 
   .contact-info {
     order: 2;
+    
   }
 
   .contact-form {
@@ -246,5 +247,6 @@
   .social-links {
     justify-content: center;
   }
+ 
 }
 

@@ -920,15 +920,16 @@
 
 @media (max-width: 480px) {
   .resume-section {
-    padding: 4rem 0.25rem 1rem;
-  }
+    display: none;
+  }}
 
-  .resume-wrapper {
+  /* .resume-wrapper {
     perspective: 800px;
   }
 
   .book {
     transform: scale(0.65);
+    
   }
 
   .book.pages-open {
@@ -960,4 +961,4 @@
   .header-title {
     font-size: 0.85rem;
   }
-}
+} */

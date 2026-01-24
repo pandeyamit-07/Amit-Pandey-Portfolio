@@ -1262,9 +1262,9 @@
   .step-image img {
     width: 100%;
     max-width: 300px;
-    height: auto;
+    height: 200px;
     max-height: 200px;
-    object-fit: contain;
+    object-fit: fill;
   }
 
   .project-modal-tech-tags {
@@ -1416,6 +1416,8 @@
   .skills-list {
     grid-template-columns: 1fr;
     gap: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .skill-item {
