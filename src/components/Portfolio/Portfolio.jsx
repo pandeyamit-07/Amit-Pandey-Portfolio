@@ -58,7 +58,8 @@ const projectsData = [
     desc4: `The Inventory page enables the admin to add, update, and delete items, as well as manage inventory stock levels and item quantities.`,
 
     technologies: ['React', 'Node.js', 'MySQL', 'JWT', 'WebSocket', 'pdfkit'],
-    liveLink: 'https://khana-khajana-eayz.onrender.com/'
+    liveLink: 'https://khana-khajana-eayz.onrender.com/',
+    gitlink:'https://github.com/pandeyamit-07/Khana-Khajana'
   },
 
   {
@@ -75,7 +76,9 @@ const projectsData = [
     desc4: ` A React analytics dashboard for monitoring. It include , DTMF handling for interactive responses, automated campaign management, and real-time monitoring of call status and outcomes.`,
 
     technologies: ['Node.js', 'Asterisk PBX', 'Chan Dongle', 'Asterisk Manager','mysql'],
-    liveLink: 'http://calldash.hottcart.com/'
+    liveLink: 'http://calldash.hottcart.com/',
+    gitlink:'https://github.com/pandeyamit-07/Automated-Outbound-Calling-System'
+
   },
 
   {
@@ -92,7 +95,8 @@ const projectsData = [
     desc4: `Also can edit or delete the task and task status between Pending to Completed. This system is suited for personal productivity and project management while prioritizing user privacy and performance.`,
 
     technologies: ['React', 'Node.js', 'Express', 'MongoDb'],
-    liveLink: 'https://task-management-system-1-tg23.onrender.com/'
+    liveLink: 'https://task-management-system-1-tg23.onrender.com/',
+    gitlink:'https://github.com/pandeyamit-07/Task-Management-System'
   },
 
   {
@@ -109,7 +113,8 @@ const projectsData = [
     desc4: `This project showcases frontend skills in HTML, CSS, and JavaScript and demonstrates building a responsive, user-friendly web application.`,
 
     technologies: ['React', 'Node.js', 'MongoDB', 'JWT'],
-    liveLink: 'https://pandeyamit-07.github.io/MRM-E-Commerce---My-first-project/'
+    liveLink: 'https://pandeyamit-07.github.io/MRM-E-Commerce---My-first-project/',
+    gitlink:'https://github.com/pandeyamit-07/Task-Management-System'
   }
 ]
 
@@ -608,6 +613,14 @@ function Portfolio() {
                   className="project-view-live-btn"
                 >
                   View Live
+                </a>
+                  <a 
+                  href={selectedProject.gitlink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="project-view-live-btn"
+                >
+                  Github Link
                 </a>
               </div>
 
