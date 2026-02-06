@@ -19,10 +19,10 @@
 }
 
 .about-image {
-  width: 554px;
-  margin-left: -100px;
+  width: 294px;
+  margin-left: 0px;
   margin-top: -100px;
-  height: 535px;
+  height: 450px;
   border-radius: 20px;
  
 }
@@ -146,10 +146,10 @@
 
 @media (max-width: 480px) {
   .about-image {
-    max-width: 350px;
-    height: 350px;
-    margin-left: -40px;
-    margin-top: -70px; }
+    max-width: 250px;
+    height: 400px;
+    margin-left: 0px;
+    margin-top: 0px; }
 
   .about-description {
     font-size: 0.9rem;

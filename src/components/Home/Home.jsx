@@ -1,5 +1,5 @@
 import './Home.css'
-import amitImage from '../../assets/img/y.png';
+import amitImage from '../../assets/img/b.png';
 import resumePDF from '../../assets/pdf/Amit Pandey Resume .pdf';
 
 

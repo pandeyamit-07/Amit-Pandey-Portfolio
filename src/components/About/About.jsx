@@ -1,5 +1,5 @@
 import './About.css'
-import amitImage from '../../assets/img/x.png';
+import amitImage from '../../assets/img/y.png';
 
 
 function About() {
@@ -37,8 +37,8 @@ function About() {
                 <p className="stat-label">Projects Participation</p>
               </div>
               <div className="stat-item">
-                <h3 className="stat-number">7+</h3>
-                <p className="stat-label">Month Fresher Experince</p>
+                <h3 className="stat-number">1+</h3>
+                <p className="stat-label">Year Fresher Experince</p>
               </div>
               <div className="stat-item">
                 <h3 className="stat-number">100%</h3>
