@@ -1,5 +1,5 @@
 import './About.css'
-import amitImage from '../../assets/img/amit-nav.png';
+import amitImage from '../../assets/img/x.png';
 
 
 function About() {

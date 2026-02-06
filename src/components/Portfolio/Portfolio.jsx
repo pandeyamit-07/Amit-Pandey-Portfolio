@@ -20,11 +20,11 @@ import tms2 from '../../assets/img/data/tms/tms2.png'
 import tms3 from '../../assets/img/data/tms/tms3.png'
 import tms4 from '../../assets/img/data/tms/tms4.png'
 
-import mrm0 from '../../assets/img/data/mrm/mrm0.jpg'
-import mrm1 from '../../assets/img/data/mrm/mrm1.png'
-import mrm2 from '../../assets/img/data/mrm/mrm2.png'
-import mrm3 from '../../assets/img/data/mrm/mrm3.png'
-import mrm4 from '../../assets/img/data/mrm/mrm4.png'
+import mrm0 from '../../assets/img/data/arya/arya0.png'
+import mrm1 from '../../assets/img/data/arya/arya1.png'
+import mrm2 from '../../assets/img/data/arya/arya2.png'
+import mrm3 from '../../assets/img/data/arya/arya3.png'
+import mrm4 from '../../assets/img/data/arya/arya4.png'
 
 //certificates
 import cer1 from '../../assets/img/certificate/weblord.png'
@@ -76,13 +76,30 @@ const projectsData = [
     desc4: ` A React analytics dashboard for monitoring. It include , DTMF handling for interactive responses, automated campaign management, and real-time monitoring of call status and outcomes.`,
 
     technologies: ['Node.js', 'Asterisk PBX', 'Chan Dongle', 'Asterisk Manager','mysql'],
-    liveLink: 'http://calldash.hottcart.com/',
+    liveLink: 'https://auto-calling-dashboard-1.onrender.com',
     gitlink:'https://github.com/pandeyamit-07/Automated-Outbound-Calling-System'
 
   },
-
-  {
+ {
     id: 'project-3',
+    title: 'School Informational Website',
+    images: [mrm0, mrm1, mrm2, mrm3, mrm4],
+
+    desc1: `The Arya School website is a modern and responsive educational platform developed for students, parents, and staff.`,
+
+    desc2: `After development, the website was deployed on Netlify to make it live and custom domain was purchased from GoDaddy to give the website a professional identity.`,
+
+    desc3: `The website was added to Google Search Console to verify ownership and monitor performance.Sitemap was submitted and indexing was requested, making the website live and visible on Google search results with SEO.`,
+
+    desc4: `The website is fast, mobile-friendly, and easy to navigate.
+Its goal is to build a strong and professional online presence for the school.`,
+
+    technologies: ['React', 'Netlify', 'GoDaady', 'Google Search Console'],
+    liveLink: 'https://aryaenglishschool.in/',
+    gitlink:'https://github.com/pandeyamit-07/arya-school-new'
+  },
+  {
+    id: 'project-4',
     title: 'Task Management System',
     images: [tms0, tms1, tms2, tms3, tms4],
 
@@ -97,25 +114,9 @@ const projectsData = [
     technologies: ['React', 'Node.js', 'Express', 'MongoDb'],
     liveLink: 'https://task-management-system-1-tg23.onrender.com/',
     gitlink:'https://github.com/pandeyamit-07/Task-Management-System'
-  },
-
-  {
-    id: 'project-4',
-    title: 'MRM Ecommerce Platform',
-    images: [mrm0, mrm1, mrm2, mrm3, mrm4],
-
-    desc1: `A fully functional e-commerce platform built with modern web technologies that offers a seamless shopping experience.`,
-
-    desc2: `Platform features include a dynamic product catalog, shopping cart with add/remove/update, and a streamlined checkout process for quick purchases.`,
-
-    desc3: `The UI emphasizes responsive design and intuitive navigation so users can browse, review cart items, and complete purchases easily across devices.`,
-
-    desc4: `This project showcases frontend skills in HTML, CSS, and JavaScript and demonstrates building a responsive, user-friendly web application.`,
-
-    technologies: ['React', 'Node.js', 'MongoDB', 'JWT'],
-    liveLink: 'https://pandeyamit-07.github.io/MRM-E-Commerce---My-first-project/',
-    gitlink:'https://github.com/pandeyamit-07/Task-Management-System'
   }
+
+ 
 ]
 
 function Portfolio() {

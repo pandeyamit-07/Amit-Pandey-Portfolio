@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
-import amitImage from '../../assets/img/amit-nav.png';
+import amitImage from '../../assets/img/a.png';
 
 
 function Navbar({ activeSection, scrollToSection }) {
