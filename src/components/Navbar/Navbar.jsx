@@ -70,6 +70,15 @@ function Navbar({ activeSection, scrollToSection }) {
             </li>
             <li>
               <a 
+                href="#experience" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('experience'); }}
+                className={activeSection === 'experience' ? 'active' : ''}
+              >
+                Experience
+              </a>
+            </li>
+            <li>
+              <a 
                 href="#portfolio" 
                 onClick={(e) => { e.preventDefault(); handleNavClick('portfolio'); }}
                 className={activeSection === 'portfolio' ? 'active' : ''}

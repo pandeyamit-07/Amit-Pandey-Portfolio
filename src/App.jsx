@@ -6,13 +6,14 @@ import Portfolio from './components/Portfolio/Portfolio'
 import About from './components/About/About'
 import Resume from './components/Resume/Resume'
 import Contact from './components/Contact/Contact'
+import Experience from './components/Experience/Experience'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'portfolio', 'about', 'resume', 'contact']
+      const sections = ['home', 'experience', 'portfolio', 'about', 'resume', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -43,6 +44,7 @@ function App() {
     <div className="app">
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <Home />
+      <Experience />
       <Portfolio />
       <About />
       <Resume />
