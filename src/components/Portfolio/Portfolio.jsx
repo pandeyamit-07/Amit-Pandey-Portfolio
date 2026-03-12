@@ -8,11 +8,11 @@ import pos2 from '../../assets/img/data/pos/pos2.png'
 import pos3 from '../../assets/img/data/pos/pos3.png'
 import pos4 from '../../assets/img/data/pos/pos4.png'
 
-import auto0 from '../../assets/img/data/auto/auto0.png'
-import auto1 from '../../assets/img/data/auto/auto1.webp'
-import auto2 from '../../assets/img/data/auto/auto2.webp'
-import auto3 from '../../assets/img/data/auto/auto3.webp'
-import auto4 from '../../assets/img/data/auto/auto4.webp'
+// import auto0 from '../../assets/img/data/auto/auto0.png'
+// import auto1 from '../../assets/img/data/auto/auto1.webp'
+// import auto2 from '../../assets/img/data/auto/auto2.webp'
+// import auto3 from '../../assets/img/data/auto/auto3.webp'
+// import auto4 from '../../assets/img/data/auto/auto4.webp'
 
 import tms0 from '../../assets/img/data/tms/tms0.png'
 import tms1 from '../../assets/img/data/tms/tms1.png'
@@ -62,6 +62,7 @@ const projectsData = [
     gitlink:'https://github.com/pandeyamit-07/Khana-Khajana'
   },
 
+  /*
   {
     id: 'project-2',
     title: 'Automated Outbound Calling System',
@@ -80,6 +81,7 @@ const projectsData = [
     gitlink:'https://github.com/pandeyamit-07/Automated-Outbound-Calling-System'
 
   },
+  */
  {
     id: 'project-3',
     title: 'School Informational Website',

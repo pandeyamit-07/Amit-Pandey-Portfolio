@@ -120,10 +120,10 @@ const Resume = () => {
             <h2 className="header-title">Experiences</h2>
             <div className="experience-box">
               <div className="exp-header">
-                <h3>Internship Full (MERN) Stack Developer</h3>
+                <h3>Full (MERN) Stack Developer</h3>
                 <div className="exp-header-info">
                 <span className="exp-company">WEBLORD INFO TECH PVT LTD</span>
-                <span className="exp-duration">6 Months</span>
+                <span className="exp-duration">Jun 2025 - Jul 2025</span>
                 </div>
               </div>
               <ul className="exp-responsibilities">
