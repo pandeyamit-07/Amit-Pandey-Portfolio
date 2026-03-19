@@ -65,8 +65,8 @@ const projectsData = [
     desc4: `The Inventory page enables the admin to add, update, and delete items, as well as manage inventory stock levels and item quantities.`,
 
     technologies: ['React', 'Node.js', 'MySQL', 'JWT', 'WebSocket', 'pdfkit'],
-    liveLink: 'https://khana-khajana-eayz.onrender.com/',
-    gitlink:'https://github.com/pandeyamit-07/Khana-Khajana'
+    liveLink: 'https://khana-khazana-rest.vercel.app/',
+    gitlink:'https://github.com/pandeyamit-07/Khana-khazana.git'
   },
 
   /*

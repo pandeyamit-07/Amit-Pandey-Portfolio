@@ -145,6 +145,8 @@
 }
 
 @media (max-width: 480px) {
+  
+}
   .about-image {
     max-width: 380px;
     height: 380px;
@@ -158,5 +160,5 @@
   .stat-number {
     font-size: 1.75rem;
   }
-}
+
 
