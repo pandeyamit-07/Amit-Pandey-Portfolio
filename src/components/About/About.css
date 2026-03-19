@@ -146,9 +146,9 @@
 
 @media (max-width: 480px) {
   .about-image {
-    max-width: 370px;
-    height: 400px;
-    margin-left: -10px;
+    max-width: 380px;
+    height: 380px;
+    margin-left: -80px;
     margin-top: 0px; }
 
   .about-description {
