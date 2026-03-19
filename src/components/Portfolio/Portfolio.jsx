@@ -26,6 +26,13 @@ import mrm2 from '../../assets/img/data/arya/arya2.png'
 import mrm3 from '../../assets/img/data/arya/arya3.png'
 import mrm4 from '../../assets/img/data/arya/arya4.png'
 
+import cake0 from '../../assets/img/data/Cake/cake2.png'
+import cake1 from '../../assets/img/data/Cake/cake1.png'
+import cake2 from '../../assets/img/data/Cake/cake6.jpeg'
+import cake3 from '../../assets/img/data/Cake/cake2.png'
+import cake4 from '../../assets/img/data/Cake/cake3.png'
+
+
 //certificates
 import cer1 from '../../assets/img/certificate/weblord.png'
 import cer2 from '../../assets/img/certificate/mern.jpg'
@@ -35,7 +42,7 @@ import cer5 from '../../assets/img/certificate/agentic.jpg'
 import cer6 from '../../assets/img/certificate/c++.jpg'
 
 //certificates Pdf
-import cert1 from '../../assets/pdf/weblord.pdf'
+// import cert1 from '../../assets/pdf/weblord.pdf'
 import cert2 from '../../assets/pdf/mern.pdf'
 import cert3 from '../../assets/pdf/collage.pdf'
 import cert4 from '../../assets/pdf/dsa.pdf'
@@ -83,7 +90,7 @@ const projectsData = [
   },
   */
  {
-    id: 'project-3',
+    id: 'project-2',
     title: 'School Informational Website',
     images: [mrm0, mrm1, mrm2, mrm3, mrm4],
 
@@ -101,7 +108,7 @@ Its goal is to build a strong and professional online presence for the school.`,
     gitlink:'https://github.com/pandeyamit-07/arya-school-new'
   },
   {
-    id: 'project-4',
+    id: 'project-3',
     title: 'Task Management System',
     images: [tms0, tms1, tms2, tms3, tms4],
 
@@ -116,6 +123,24 @@ Its goal is to build a strong and professional online presence for the school.`,
     technologies: ['React', 'Node.js', 'Express', 'MongoDb'],
     liveLink: 'https://task-management-system-1-tg23.onrender.com/',
     gitlink:'https://github.com/pandeyamit-07/Task-Management-System'
+  },
+
+  {
+    id: 'project-4',
+    title: 'Cake Ordering Website - Whatsapp',
+    images: [cake0, cake1, cake2, cake3, cake4],
+
+    desc1: `Serverless Architecture: Operates as a purely front-end application, eliminating the need for a complex backend or database, which significantly reduces hosting costs and maintenance.`,
+
+    desc2: `Dynamic Link Generation: Utilizes custom JavaScript logic to instantly generate WhatsApp API links that include specific product metadata, such as cake name, size, and price.`,
+
+    desc3: `Streamlined User Journey: Simplifies the purchasing process by allowing customers to transition from browsing a visual gallery to a pre-filled chat window with a single click.`,
+
+    desc4: `Small Business Optimization: Designed specifically to boost the online presence of local bakeries by providing a professional storefront that leverages existing communication tools for order management.`,
+
+    technologies: ['React', 'Whatsapp Api'],
+    liveLink: 'https://blisscakes.netlify.app/',
+    gitlink:'https://github.com/pandeyamit-07/Bliss-Cakes.git'
   }
 
  
@@ -128,7 +153,6 @@ function Portfolio() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null)
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const toggleDescription = (projectId) => {
     setExpandedDescriptions(prev => ({
@@ -140,7 +164,7 @@ function Portfolio() {
   const getCertificatePdfSrc = () => {
     switch (selectedCertificate) {
       case 'cert-1':
-        return cert1
+        return cert2
       case 'cert-2':
         return cert2
       case 'cert-3':
@@ -172,40 +196,18 @@ function Portfolio() {
     const project = projectsData.find(p => p.id === projectId)
     if (project) {
       setSelectedProject(project)
-      setCurrentImageIndex(0)
       setIsProjectModalOpen(true)
-      document.body.style.overflow = 'hidden' // Prevent background scrolling
     }
   }
 
   const closeProjectModal = () => {
     setIsProjectModalOpen(false)
     setSelectedProject(null)
-    setCurrentImageIndex(0)
-    document.body.style.overflow = 'unset' // Restore scrolling
   }
 
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => 
-        prev === selectedProject.images.length - 1 ? 0 : prev + 1
-      )
-    }
-  }
 
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => 
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
-      )
-    }
-  }
 
-  const goToImage = (index) => {
-    setCurrentImageIndex(index)
-  }
-
-  // Handle ESC key to close modals
+  // Handle ESC key to close modals and manage body overflow
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -217,8 +219,19 @@ function Portfolio() {
         }
       }
     }
+
+    // Manage body overflow based on modal states
+    if (isModalOpen || isProjectModalOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
     window.addEventListener('keydown', handleEscape)
-    return () => window.removeEventListener('keydown', handleEscape)
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'unset'
+    }
   }, [isModalOpen, isProjectModalOpen])
 
   useEffect(() => {
@@ -226,7 +239,7 @@ function Portfolio() {
       const skillsContainer = document.getElementById('skills-container')
       const skillCircles = document.querySelectorAll('.skill-circle')
 
-      const handleClick = (e) => {
+      const handleClick = () => {
         const rect = skillsContainer.getBoundingClientRect()
         const containerWidth = rect.width
         const containerHeight = rect.height
@@ -435,7 +448,7 @@ function Portfolio() {
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="skill-logo-img" />
                   <div className="skill-glow"></div>
                 </div>
-                <div className="skill-circle" data-skill="jwt">
+                <div className="skill-circle" data-skill="JWT">
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jwt/jwt-original.svg" alt="JWT" className="skill-logo-img" />
                   <div className="skill-glow"></div>
                 </div>
@@ -451,6 +464,19 @@ function Portfolio() {
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" className="skill-logo-img" />
                   <div className="skill-glow"></div>
                 </div>
+                <div className="skill-circle" data-skill="Next.js">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="skill-logo-img" />
+                  <div className="skill-glow"></div>
+                </div>
+                <div className="skill-circle" data-skill="Tailwind CSS">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="skill-logo-img" />
+                  <div className="skill-glow"></div>
+                </div>
+                <div className="skill-circle" data-skill="TypeScript">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="skill-logo-img" />
+                  <div className="skill-glow"></div>
+                </div>
+                
               </div>
 
               {/* Right Side - Written Skills List */}
@@ -467,13 +493,13 @@ function Portfolio() {
                     <span className="skill-name">EXPRESS</span>
                   </div>
                   <div className="skill-item">
-                    <span className="skill-name">CSS</span>
+                    <span className="skill-name">Next.js</span>
                   </div>
                   <div className="skill-item">
                     <span className="skill-name">MongoDB</span>
                   </div>
                   <div className="skill-item">
-                    <span className="skill-name">HTML</span>
+                    <span className="skill-name">TypeScript</span>
                   </div>
                   <div className="skill-item">
                     <span className="skill-name">MySQL</span>
@@ -488,7 +514,7 @@ function Portfolio() {
                     <span className="skill-name">Tailwind CSS</span>
                   </div>
                   <div className="skill-item">
-                    <span className="skill-name">JS & TS</span>
+                    <span className="skill-name">JavaScript</span>
                   </div>
                   <div className="skill-item">
                     <span className="skill-name">Postman</span>

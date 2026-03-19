@@ -19,8 +19,8 @@
 }
 
 .about-image {
-  width: 294px;
-  margin-left: 0px;
+  width: 450px;
+  margin-left: -50px;
   margin-top: -100px;
   height: 450px;
   border-radius: 20px;
@@ -146,9 +146,9 @@
 
 @media (max-width: 480px) {
   .about-image {
-    max-width: 250px;
+    max-width: 370px;
     height: 400px;
-    margin-left: 0px;
+    margin-left: -10px;
     margin-top: 0px; }
 
   .about-description {

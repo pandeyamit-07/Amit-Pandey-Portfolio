@@ -13,12 +13,12 @@ function Home() {
             <h2 className="welcome">Welcome to my portfolio</h2>
             <h3 className="role">Software Developer / MERN Stack Developer</h3>
             <div className="skills-tags">
-              <span className="skill-tag">Node.js Developer</span>
+              <span className="skill-tag">Node.js Backend Developer</span>
               <span className="skill-tag">Full Stack Developer</span>
-              <span className="skill-tag">React Developer</span>
-              <span className="skill-tag">MongoDB Expert</span>
-              <span className="skill-tag">Express.js</span>
-              <span className="skill-tag">JavaScript</span>
+              <span className="skill-tag">System Design</span>
+              <span className="skill-tag">MERN STACK</span>
+              <span className="skill-tag">NEXT js</span>
+              <span className="skill-tag">TypeScript</span>
             </div>
             <div className="home-action-buttons">
               <a 
